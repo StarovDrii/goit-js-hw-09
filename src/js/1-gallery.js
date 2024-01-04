@@ -2,8 +2,8 @@
 // original — посилання на велику версію зображення для модального вікна
 // description — текстовий опис зображення,
 //               для атрибута alt малого зображення та підпису великого зображення в модалці.
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+// import SimpleLightbox from 'simplelightbox';
+// import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const images = [
   {
