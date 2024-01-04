@@ -24,3 +24,13 @@
 .gallery-image:hover {
   transform: scale(1.03);
 }
+
+.sl-wrapper {
+  background: rgba(46, 47, 66, 0.8);
+}
+.sl-close,
+.sl-prev,
+.sl-next,
+.sl-counter {
+  color: #ffffff !important;
+}

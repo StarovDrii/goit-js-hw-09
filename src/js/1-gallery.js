@@ -2,8 +2,8 @@
 // original — посилання на велику версію зображення для модального вікна
 // description — текстовий опис зображення,
 //               для атрибута alt малого зображення та підпису великого зображення в модалці.
-// import SimpleLightbox from 'simplelightbox';
-// import 'simplelightbox/dist/simple-lightbox.min.css';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const images = [
   {
@@ -75,7 +75,7 @@ const galleryMarkup = images
   .map(
     ({ preview, original, description }) => `
     <li class="gallery-item">
-      <a class="gallery-link" href="${original}"  onclick="event.preventDefault()">
+      <a class="gallery-link" href="${original}"">
         <img
           class="gallery-image"
           src="${preview}"
@@ -90,6 +90,11 @@ const galleryMarkup = images
   )
   .join('');
 galleryList.innerHTML = galleryMarkup;
+
+new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
 // const createModal = event => {
 //   if (event.target.nodeName !== 'IMG') {
