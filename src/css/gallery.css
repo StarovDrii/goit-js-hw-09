@@ -20,6 +20,8 @@
 .gallery-image {
   transition: transform var(--animation-duration) var(--timing-function);
   object-fit: cover;
+  width: 360px;
+  height: 200px;
 }
 .gallery-image:hover {
   transform: scale(1.03);

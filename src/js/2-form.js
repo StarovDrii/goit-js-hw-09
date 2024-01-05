@@ -8,20 +8,19 @@ function saveInputValue(event) {
     const emailValue = feedbackForm.querySelector('[name="email"]').value;
     const messageValue = feedbackForm.querySelector('[name="message"]').value;
 
-    if (emailValue.trim() !== '' || messageValue.trim() !== '') {
-      localStorage.setItem(
-        storageKey,
-        JSON.stringify({ email: emailValue, message: messageValue })
-      );
-    }
+    localStorage.setItem(
+      storageKey,
+      JSON.stringify({ email: emailValue, message: messageValue })
+    );
   }
 }
 
 const loadForm = () => {
   const savedForm = localStorage.getItem(storageKey);
   const parsedForm = JSON.parse(savedForm);
-  feedbackForm.querySelector('[name="email"]').value = parsedForm.email;
-  feedbackForm.querySelector('[name="message"]').value = parsedForm.message;
+  feedbackForm.querySelector('[name="email"]').value = parsedForm?.email || '';
+  feedbackForm.querySelector('[name="message"]').value =
+    parsedForm?.message || '';
 };
 
 loadForm();

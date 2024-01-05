@@ -81,8 +81,6 @@ const galleryMarkup = images
           src="${preview}"
           data-source="${original}"
           alt="${description}"
-          width="360px"
-          height="200px" 
         />
       </a>
     </li>
@@ -95,34 +93,3 @@ new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
-
-// const createModal = event => {
-//   if (event.target.nodeName !== 'IMG') {
-//     return;
-//   }
-//   let closeModal;
-
-//   const instance = basicLightbox.create(
-//     `
-//     <img src="${event.target.dataset.source}" alt="${event.target.alt}">
-//   `,
-//     {
-//       onShow: instance => {
-//         closeModal = event => {
-//           if (event.code === 'Escape') {
-//             instance.close();
-//           }
-//         };
-
-//         document.addEventListener('keydown', closeModal);
-//       },
-//       onClose: instance => {
-//         document.removeEventListener('keydown', closeModal);
-//       },
-//     }
-//   );
-
-//   instance.show();
-// };
-
-// galleryList.addEventListener('click', createModal);
