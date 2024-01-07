@@ -6,11 +6,17 @@ feedbackForm.addEventListener('input', saveInputValue);
 feedbackForm.addEventListener('submit', submitForm);
 
 function saveInputValue(event) {
-  if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
-    const emailValue = feedbackForm.querySelector('[name="email"]').value;
-    const messageValue = feedbackForm.querySelector('[name="message"]').value;
-
-    if (emailValue.trim() !== '' || messageValue.trim() !== '') {
+  if (
+    event.target.nodeName === 'INPUT' ||
+    event.target.nodeName === 'TEXTAREA'
+  ) {
+    const emailValue = feedbackForm
+      .querySelector('[name="email"]')
+      .value.trim();
+    const messageValue = feedbackForm
+      .querySelector('[name="message"]')
+      .value.trim();
+    if (emailValue || messageValue) {
       localStorage.setItem(
         storageKey,
         JSON.stringify({ email: emailValue, message: messageValue })
@@ -24,9 +30,12 @@ function saveInputValue(event) {
 function submitForm(event) {
   event.preventDefault();
 
-  const { email, message } = JSON.parse(localStorage.getItem(storageKey));
+  const emailInput = feedbackForm.querySelector('[name="email"]');
+  const messageInput = feedbackForm.querySelector('[name="message"]');
+  const email = emailInput.value.trim();
+  const message = messageInput.value.trim();
 
-  if (email.trim() !== '' && message.trim() !== '') {
+  if (email !== '' && message !== '') {
     console.log({ email, message });
     localStorage.removeItem(storageKey);
     feedbackForm.reset();
@@ -35,7 +44,6 @@ function submitForm(event) {
 
 function loadFormData() {
   const savedForm = localStorage.getItem(storageKey);
-
   if (savedForm !== null) {
     const parsedForm = JSON.parse(savedForm);
 
